@@ -136,7 +136,7 @@
     </div>
      <ul id="slide-tabs">
      	<!-- a href="contacts" -->
-        <li><a href="login">Exercício Final (Lista de Contatos)</a></li>
+        <li><a href="contacts">Exercício Final (Lista de Contatos)</a></li>
         <li><a href="#slide-1">Material Oracle</a></li>
         <li><a href="#slide-1">Material Agile Center</a></li>
 		</ul>
