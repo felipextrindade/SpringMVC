@@ -5,21 +5,29 @@
 
 <html>
     <head>
+    	<link href="layout/styles/contact.css" rel="stylesheet" type="text/css" media="all">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Contact Manager Home</title>
+        <link rel="stylesheet" href="layout/styles/remodal.css" rel="stylesheet" type="text/css" media="all">
+	    <link rel="stylesheet" href="layout/styles/remodal-default-theme.css" rel="stylesheet" type="text/css" media="all">
+	       <title>Contact Manager Home</title>
     </head>
     <body>
-    	<div align="center">
+    <script src="layout/scripts/jquery.min.js"></script>
+    <script src="layout/scripts/remodal.js"></script>
+    	<div class="mainDiv"align="center">
 	        <h1>Contact List</h1>
-	        <h3><a href="newContact">New Contact</a></h3>
-	        <table border="1">
-	        	<th>No</th>
-	        	<th>Name</th>
-	        	<th>Email</th>
-	        	<th>Address</th>
-	        	<th>Telephone</th>
-	        	<th>Action</th>
-	        	
+	        <h3 id="CreateContact"><a href="newContact">New Contact</a></h3>
+	        <table id="mainTable">
+	        <thead>
+	        	<tr>
+		        	<th>No</th>
+		        	<th>Name</th>
+		        	<th>Email</th>
+		        	<th>Address</th>
+		        	<th>Telephone</th>
+		        	<th>Action</th>
+	        	</tr>
+	        </thead>	        	
 				<c:forEach var="contact" items="${listContact}" varStatus="status">
 	        	<tr>
 	        		<td>${status.index + 1}</td>
@@ -28,14 +36,33 @@
 					<td>${contact.address}</td>
 					<td>${contact.telephone}</td>
 					<td>
-						<a href="editContact?id=${contact.id}">Edit</a>
-						&nbsp;&nbsp;&nbsp;&nbsp;
-						<a href="deleteContact?id=${contact.id}">Delete</a>
+						<a class=" button edit" href="editContact?id=${contact.id}">Edit</a>
+						<a class="button delete" href="#modal" id="${contact.id}">Delete</a>
+						<!-- href=deleteContact?id=${contact.id} --->
 					</td>
 							
 	        	</tr>
 				</c:forEach>	        	
 			</table>
     	</div>
+    	<div class="remodal" data-remodal-id="modal">
+			  <button data-remodal-action="close" class="remodal-close"></button>
+			  <h1>Confirm delete?</h1>
+			  <p>
+			  </p>
+			  <br>
+			  <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
+			  <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
+		</div>
+    	<br><br>
+    	<center><a class=" button edit" href="http://localhost:8090/SpringMVC/">Voltar</a></center>
+   		   	
+    	<script type="text/javascript">
+	    	$(document).on('confirmation', '.remodal', function () {
+	    		  var id = ${contact.id};
+	    		  location.href("editContact?id=id");
+	    		});
+    	</script>    	
+    	 
     </body>
 </html>

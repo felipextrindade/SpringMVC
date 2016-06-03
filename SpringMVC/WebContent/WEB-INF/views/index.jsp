@@ -7,6 +7,7 @@
 <head>
 <title>GFT</title>
 <meta charset="utf-8">
+<link rel="icon" href="http://i.imgur.com/lqIAj.jpg" type="image/x-icon">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
 </head>
@@ -134,7 +135,8 @@
       <figure id="slide-1"><a class="view" href="#"><img src="images/demo/foto-sorocaba.jpg" alt=""></a></figure>
     </div>
      <ul id="slide-tabs">
-        <li><a href="contacts">Exercício Final (Lista de Contatos)</a></li>
+     	<!-- a href="contacts" -->
+        <li><a href="login">Exercício Final (Lista de Contatos)</a></li>
         <li><a href="#slide-1">Material Oracle</a></li>
         <li><a href="#slide-1">Material Agile Center</a></li>
 		</ul>

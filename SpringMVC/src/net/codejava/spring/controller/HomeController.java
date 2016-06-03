@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import net.codejava.spring.dao.ContactDAO;
+import net.codejava.spring.dao.LoginDAO;
 import net.codejava.spring.model.Contact;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,9 @@ public class HomeController {
 
 	@Autowired
 	private ContactDAO contactDAO;
+	
+	/*@Autowired
+	private LoginDAO loginDAO;*/
 	
 	@RequestMapping(value="/")
 	public ModelAndView mainPage(ModelAndView model) throws IOException{

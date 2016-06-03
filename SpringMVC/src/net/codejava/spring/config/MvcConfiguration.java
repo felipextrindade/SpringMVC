@@ -14,6 +14,8 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import net.codejava.spring.dao.ContactDAO;
 import net.codejava.spring.dao.ContactDAOImpl;
+import net.codejava.spring.dao.LoginDAO;
+import net.codejava.spring.dao.LoginDAOImpl;
 
 @Configuration
 @ComponentScan(basePackages="net.codejava.spring")
@@ -41,7 +43,7 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/starterlab");
 		dataSource.setUsername("root");
-		dataSource.setPassword("root");
+		dataSource.setPassword("ROOT");
 		
 		return dataSource;
 	}
@@ -49,5 +51,10 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 	@Bean
 	public ContactDAO getContactDAO() {
 		return new ContactDAOImpl(getDataSource());
+	}
+	
+	@Bean
+	public LoginDAO getLoginDAO() {
+		return new LoginDAOImpl(getDataSource());
 	}
 }
