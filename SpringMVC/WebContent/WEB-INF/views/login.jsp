@@ -13,7 +13,7 @@
 		<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 		<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 		<link href="layout/styles/agenda.css" rel="stylesheet" type="text/css" media="all">
-		
+	</head>	
 		<div align="center" class="mainDiv">
 			
 			<h1 >Login</h1>
@@ -41,6 +41,5 @@
 			<h3>${erro}</h3>
 		</div>
 			
-    </head>
+    
     <body>
-    	<div id="center-table">
