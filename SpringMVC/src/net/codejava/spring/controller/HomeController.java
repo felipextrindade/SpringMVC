@@ -30,12 +30,12 @@ public class HomeController {
 	/*@Autowired
 	private LoginDAO loginDAO;*/
 	
-	@RequestMapping(value="/")
+	/*@RequestMapping(value="/")
 	public ModelAndView mainPage(ModelAndView model) throws IOException{
 		model.setViewName("index");
 		
 		return model;
-	}
+	}*/
 	
 	@RequestMapping(value="/contacts")
 	public ModelAndView listContact(ModelAndView model) throws IOException{

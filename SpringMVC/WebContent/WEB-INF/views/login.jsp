@@ -8,13 +8,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Projeto Agenda</title>
-        
+        <link href="layout/styles/contact.css" rel="stylesheet" type="text/css" media="all">
 		<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 		<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 		<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 		<link href="layout/styles/agenda.css" rel="stylesheet" type="text/css" media="all">
 		
-		<div align="center">
+		<div align="center" class="mainDiv">
 			
 			<h1 >Login</h1>
 		
