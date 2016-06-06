@@ -14,6 +14,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import net.codejava.spring.dao.ContactDAO;
 import net.codejava.spring.dao.ContactDAOImpl;
+import net.codejava.spring.dao.LoginDAOImpl;
 
 
 @Configuration
@@ -50,6 +51,11 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 	@Bean
 	public ContactDAO getContactDAO() {
 		return new ContactDAOImpl(getDataSource());
+	}
+	
+	@Bean
+	public LoginDAOImpl getLoginDAO() {
+		return new LoginDAOImpl(getDataSource());
 	}
 	
 }

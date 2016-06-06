@@ -1,4 +1,4 @@
-/*package net.codejava.spring.controller;
+package net.codejava.spring.controller;
 
 import java.io.IOException;
 
@@ -9,13 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import net.codejava.spring.dao.LoginDAO;
+import net.codejava.spring.dao.LoginDAOImpl;
 import net.codejava.spring.model.Login;
 
 @Controller
 public class LoginController {
 
 	@Autowired
-	private LoginDAO loginDAO;
+	private LoginDAO loginDAO1;
 	
 	@RequestMapping(value="/")
 	public ModelAndView mainPage(ModelAndView model) throws IOException
@@ -36,7 +37,7 @@ public class LoginController {
 		}
 		else
 		{
-			Login database = loginDAO.recuperaLogin(login.getUsuario());
+			Login database = loginDAO1.recuperaLogin(login.getUsuario(), login.getSenha());
 			
 			if(database.getUsuario() == null)
 			{
@@ -57,4 +58,4 @@ public class LoginController {
 		return model;
 	}
 	
-}*/
+}
