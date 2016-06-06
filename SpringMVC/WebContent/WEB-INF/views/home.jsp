@@ -37,15 +37,15 @@
 					<td>${contact.telephone}</td>
 					<td>
 						<a class=" button edit" href="editContact?id=${contact.id}">Edit</a>
-						<a class="button delete" href="#modal" id="${contact.id}">Delete</a>
-						<!-- href=deleteContact?id=${contact.id} --->
+						<a class="button delete" href="deleteContact?id=${contact.id}">Delete</a>
+						<!-- href="deleteContact?id=${contact.id}" --->
 					</td>
 							
 	        	</tr>
 				</c:forEach>	        	
 			</table>
     	</div>
-    	<div class="remodal" data-remodal-id="modal">
+    	<!--  --><div class="remodal" data-remodal-id="modal">
 			  <button data-remodal-action="close" class="remodal-close"></button>
 			  <h1>Confirm delete?</h1>
 			  <p>
@@ -53,16 +53,16 @@
 			  <br>
 			  <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
 			  <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
-		</div>
+		</div> -->
     	<br><br>
-    	<center><a class=" button edit" href="http://localhost:8090/SpringMVC/">Voltar</a></center>
+    	<center><a class=" button edit" href="/SpringMVC">Voltar</a></center>
    		   	
-    	<script type="text/javascript">
-	    	$(document).on('confirmation', '.remodal', function () {
+      <!--  <script type="text/javascript">
+	    	$(document).on('confirmation', '#modal', function () {
 	    		  var id = ${contact.id};
 	    		  location.href("editContact?id=id");
 	    		});
-    	</script>    	
+    	</script>  -->	
     	 
     </body>
 </html>
