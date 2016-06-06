@@ -1,0 +1,148 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	background-image: url('../img/background.png');
+	margin: 0px;
+	font-family: 'Helvetica', sans-serif;
+}
+
+.mainDiv {
+	width: 70%;
+	height: auto;
+	border-bottom: 1px solid #ccc;
+	border-radius: 1px;
+	margin: 10px auto;
+}
+
+h1 {
+	color: #213e7f;
+}
+
+#mainTable th, td {
+	padding: 20px;
+	
+}
+
+
+#mainTable thead tr th {
+	border-bottom: solid;
+	border-color: #90B1F7;
+}
+
+
+
+.button {
+	padding: 10px;
+	background-color: #213e7f;
+	text-decoration: none;
+	color: #ffffff;
+	border-radius: 5px;
+	transition: all 0.5s ease;
+}
+
+
+.edit:hover{
+	opacity: 0.9;	
+}
+
+.delete:hover{
+	opacity: 0.9;
+	background-color: #B62F13;
+
+}
+
+#CreateContact a{
+	text-decoration: none;
+	color: white;
+	padding: 5px;
+	background-color: #647bac;
+	border-radius: 5px;
+	transition: all 0.5s ease;
+}
+
+#CreateContact a:hover{
+	opacity: 0.9;
+}
+
+
+input {
+	font-size: 15px;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none; 
+}
+
+::-webkit-input-placeholder {
+   color: black;
+}
+
+:-moz-placeholder {
+   color: black;
+}
+
+::-moz-placeholder {
+   color: black;
+}
+
+input[type=submit] {
+    padding:5px 15px; 
+    background:#ccc; 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    transition: all 0.5s ease;
+   
+}
+
+input[type=submit]:hover {
+	background-color: #647bac;
+	color: white;
+}
+
+input, textarea, select, button {
+  width : 150px;
+  margin: 0;
+
+  -webkit-box-sizing: border-box; /* For legacy WebKit based browsers */
+     -moz-box-sizing: border-box; /* For legacy (Firefox <29) Gecko based browsers */
+          box-sizing: border-box;
+}
+
+
+
+
+@media only screen and (max-width: 1200px) {
+ 		.button {
+ 			padding: 2px;
+ 		}
+ 		
+ 		#mainTable th, td {
+			padding: 5px;
+		}
+		#mainDiv {
+			margin: 0;
+		}
+}
+
+
+@media only screen and (max-width: 1400px) {
+		.button {
+ 			padding: 5px;
+ 		}
+ 		
+ 		#mainTable th, td {
+			padding: 10px;
+		}
+		#mainDiv {
+			margin: 0;
+		}
+}
+
