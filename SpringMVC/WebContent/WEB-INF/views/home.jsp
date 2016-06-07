@@ -36,31 +36,29 @@
 					<td>${contact.address}</td>
 					<td>${contact.telephone}</td>
 					<td>
-						<a class=" button edit" href="editContact?id=${contact.id}">Edit</a>
+						<a class=" button edit"  href="editContact?id=${contact.id}">Edit</a>
 						<a class="button delete" href="deleteContact?id=${contact.id}">Delete</a>
-						<!-- href="deleteContact?id=${contact.id}" --->
+						<!-- href="deleteContact?id=${contact.id}"
+								  "editContact?id=${contact.id}" --->
 					</td>
 							
 	        	</tr>
 				</c:forEach>	        	
 			</table>
     	</div>
-    	<div class="remodal" data-remodal-id="modal">
+    	<div class="remodal" data-remodal-id="modaledit">
 			  <button data-remodal-action="close" class="remodal-close"></button>
-			  <h1>Confirm delete?</h1>
-			  <p>
-			  </p>
+			  <h1>Sucessfully deleted</h1>
 			  <br>
-			  <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
-			  <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
 		</div> 
     	<br><br>
     	<center><a class=" button edit" href="/SpringMVC">Voltar</a></center>
    		   	
         <script type="text/javascript">
-	    	$(document).on('confirmation', '.remodal', function () {
-	    			
-	    		});
+        $(document).on('click', '.delete', function () {
+        	var inst = $('[data-remodal-id=modaledit]').remodal();
+        	inst.open();
+        	});
     	</script>  	
     	 
     </body>

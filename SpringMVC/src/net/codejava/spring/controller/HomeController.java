@@ -6,7 +6,9 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import net.codejava.spring.dao.ContactDAO;
+import net.codejava.spring.dao.PersonDAO;
 import net.codejava.spring.model.Contact;
+import net.codejava.spring.model.Person;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,6 +29,9 @@ public class HomeController {
 	@Autowired
 	private ContactDAO contactDAO;
 	
+	@Autowired
+	private PersonDAO personDAO;
+	
 	/*@Autowired
 	private LoginDAO loginDAO;*/
 	
@@ -42,6 +47,15 @@ public class HomeController {
 		List<Contact> listContact = contactDAO.list();
 		model.addObject("listContact", listContact);
 		model.setViewName("home");
+		
+		return model;
+	}
+	
+	@RequestMapping(value="/persons")
+	public ModelAndView Persons(ModelAndView model) throws IOException{
+		List<Person> listPerson = personDAO.selectAll();
+		model.addObject("listPerson", listPerson);
+		model.setViewName("person");
 		
 		return model;
 	}
