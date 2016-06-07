@@ -22,16 +22,14 @@
 			<form:form modelAttribute="login" method="post" action="autentica">
 				<table>
 					<tr>
-						<td> Usuário: </td>
-						<td> <input type="text" name="usuario" /> </td>
+						<td> <input type="text" name="usuario" placeholder="Usuário"/> </td>
 					</tr>
 					<tr>
-						<td> Senha: </td>
-						<td> <input type="password" name="senha" /> </td>
+						<td> <input type="password" name="senha" placeholder="Senha" /> </td>
 					</tr>
 					<tr>
-						<td colspan="2" align="right">
-							<input type="submit" value="Logar" /> 
+						<td colspan="2" align="center">
+							<input type="submit" value="Login" /> 
 						</td>
 					</tr>
 				</table>

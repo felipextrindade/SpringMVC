@@ -37,7 +37,7 @@
 					<td>${contact.telephone}</td>
 					<td>
 						<a class=" button edit" href="editContact?id=${contact.id}">Edit</a>
-						<a class="button delete" href="#modal">Delete</a>
+						<a class="button delete" href="deleteContact?id=${contact.id}">Delete</a>
 						<!-- href="deleteContact?id=${contact.id}" --->
 					</td>
 							
@@ -58,9 +58,8 @@
     	<center><a class=" button edit" href="/SpringMVC">Voltar</a></center>
    		   	
         <script type="text/javascript">
-	    	$(document).on('confirmation', '#modal', function () {
-	    		  var id = ${contact.id};
-	    		  location.href("");
+	    	$(document).on('confirmation', '.remodal', function () {
+	    			
 	    		});
     	</script>  	
     	 
