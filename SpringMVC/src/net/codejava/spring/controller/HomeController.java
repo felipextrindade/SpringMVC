@@ -12,6 +12,7 @@ import net.codejava.spring.model.Person;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -44,10 +45,15 @@ public class HomeController {
 	
 	@RequestMapping(value="/contacts")
 	public ModelAndView listContact(ModelAndView model) throws IOException{
+	
+		Contact contact = new Contact();
+		model.addObject("contact", contact);
+		
 		List<Contact> listContact = contactDAO.list();
+		Person person = new Person();
+		model.addObject("person", person);
 		model.addObject("listContact", listContact);
 		model.setViewName("home");
-		
 		return model;
 	}
 	
@@ -81,6 +87,7 @@ public class HomeController {
 		return new ModelAndView("redirect:/contacts");
 	}
 	
+	
 	@RequestMapping(value = "/editContact", method = RequestMethod.GET)
 	public ModelAndView editContact(HttpServletRequest request) {
 		int contactId = Integer.parseInt(request.getParameter("id"));
@@ -89,5 +96,35 @@ public class HomeController {
 		model.addObject("contact", contact);
 		
 		return model;
+	}
+	
+	//busca
+	
+    /*@RequestMapping(value = "/search", method = RequestMethod.GET)
+    public String search(Model model) {
+        model.addAttribute("contact", new Contact());
+        return "home";
+    }*/
+    
+    @RequestMapping(value = "/search", method = RequestMethod.GET)
+	public ModelAndView listPerson(ModelAndView model,HttpServletRequest request) throws IOException {
+    	Contact contact = new Contact();
+		model.addObject("contact", contact);
+		String name = request.getParameter("name");
+		List<Contact> listContact = contactDAO.searchByName(name);
+		model.addObject("listContact", listContact);
+		model.setViewName("home");
+
+		return model;
+	} 
+	
+	
+	//mappings de persons
+	
+	@RequestMapping(value = "/deletePerson", method = RequestMethod.GET)
+	public ModelAndView deletePerson(HttpServletRequest request) {
+		int Id = Integer.parseInt(request.getParameter("id"));
+		personDAO.deletePerson(Id);
+		return new ModelAndView("redirect:/persons");
 	}
 }

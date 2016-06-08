@@ -30,7 +30,7 @@
 					<td>${person.surname}</td>
 					<td>
 						<a class=" button edit"  href="">Edit</a>
-						<a class="button delete" href="">Delete</a>
+						<a class="button delete" href="deletePerson?id=${person.id}">Delete</a>
 						<!-- href="deleteContact?id=${contact.id}"
 								  "editContact?id=${contact.id}" --->
 					</td>
@@ -41,18 +41,13 @@
     	</div>
     	<div class="remodal" data-remodal-id="modaledit">
 			  <button data-remodal-action="close" class="remodal-close"></button>
-			  <h1>Sucessfully deleted</h1>
-			  <br>
+			
 		</div> 
     	<br><br>
     	<center><a class=" button edit" href="/SpringMVC">Voltar</a></center>
    		   	
         <script type="text/javascript">
-        $(document).on('click', '.delete', function () {
-        	var inst = $('[data-remodal-id=modaledit]').remodal();
-        	inst.open();
-        	});
+        	
     	</script>  	
-    	 
     </body>
 </html>

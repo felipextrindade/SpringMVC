@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import net.codejava.spring.model.Contact;
 import net.codejava.spring.model.Login;
 
 public class LoginDAOImpl implements LoginDAO {
@@ -56,4 +57,5 @@ public class LoginDAOImpl implements LoginDAO {
 			return new Login();
 		}
 	}
+	
 }

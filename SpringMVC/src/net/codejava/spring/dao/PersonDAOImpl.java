@@ -61,9 +61,9 @@ public class PersonDAOImpl implements PersonDAO {
 			public Person mapRow(ResultSet rs, int rowNum) throws SQLException {
 				Person aPerson = new Person();
 				
+				aPerson.setId(rs.getInt("id"));
 				aPerson.setName(rs.getString("name"));
 				aPerson.setSurname(rs.getString("surname"));
-				
 				return aPerson;
 		}
 	});
@@ -74,15 +74,14 @@ public class PersonDAOImpl implements PersonDAO {
 		JdbcTemplate selectPerson = new JdbcTemplate(dataSource);
 		return selectPerson.query("SELECT NAME,SURNAME FROM PERSON_RECORD ORDER BY NAME",
 				new PersonRowMapper());
+	}*/
+
+	public void deletePerson(Integer id) {
+		String sql = "DELETE FROM PERSON_RECORD WHERE ID=?";
+		jdbcTemplate.update(sql, id);		
 	}
 
-	public void deletePerson(String name, String surname) {
-		JdbcTemplate deletePerson = new JdbcTemplate(dataSource);
-		deletePerson.update("DELETE FROM PERSON_RECORD WHERE NAME=? AND SURNAME=?",
-				new Object[]{name,surname});		
-	}
-
-	public void deleteAll() {
+	/*public void deleteAll() {
 		JdbcTemplate deleteAll = new JdbcTemplate(dataSource);
 		deleteAll.update("DELETE FROM PERSON_RECORD");
 	}*/
@@ -92,12 +91,6 @@ public class PersonDAOImpl implements PersonDAO {
 			// TODO Auto-generated method stub
 			return null;
 		}
-
-	@Override
-	public void deletePerson(String name, String surname) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void deleteAll() {

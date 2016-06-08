@@ -18,4 +18,6 @@ public interface ContactDAO {
 	public Contact get(int contactId);
 	
 	public List<Contact> list();
+	
+	public List<Contact> searchByName(String v_name);
 }

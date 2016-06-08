@@ -81,14 +81,18 @@ input[type=text], input[type=password] {
 
 ::-webkit-input-placeholder {
    color: black;
+   text-align: center;
+   
 }
 
 :-moz-placeholder {
    color: black;
+   text-align: center;
 }
 
 ::-moz-placeholder {
    color: black;
+   text-align: center;
 }
 
 input[type=submit] {
@@ -116,7 +120,9 @@ input, textarea, select, button {
           box-sizing: border-box;
 }
 
-
+#search  {
+	width: 30%;
+}
 
 
 @media only screen and (max-width: 1200px) {

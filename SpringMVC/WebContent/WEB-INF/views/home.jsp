@@ -2,6 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <html>
     <head>
@@ -36,7 +37,7 @@
 					<td>${contact.address}</td>
 					<td>${contact.telephone}</td>
 					<td>
-						<a class=" button edit"  href="editContact?id=${contact.id}">Edit</a>
+						<a class=" button edit"  href="deleteContact?id=${contact.id}">Edit</a>
 						<a class="button delete" href="deleteContact?id=${contact.id}">Delete</a>
 						<!-- href="deleteContact?id=${contact.id}"
 								  "editContact?id=${contact.id}" --->
@@ -45,20 +46,32 @@
 	        	</tr>
 				</c:forEach>	        	
 			</table>
+			<form:form method="get" modelAttribute="contact" action="search">
+			    <form:input path="name" id="search" placeholder="Digite sua pesquisa aqui" />
+			    <br />			
+			    <input type="submit" value="Submit" />
+			</form:form>
+			<br />	<br />	
     	</div>
-    	<div class="remodal" data-remodal-id="modaledit">
-			  <button data-remodal-action="close" class="remodal-close"></button>
-			  <h1>Sucessfully deleted</h1>
-			  <br>
-		</div> 
-    	<br><br>
+    	
+    	<div class="remodal" data-remodal-id="modalNewContact" title="New Contact">
+			  			
+		</div>
+			  
+		</div>
+		<br/><br/>
     	<center><a class=" button edit" href="/SpringMVC">Voltar</a></center>
    		   	
         <script type="text/javascript">
-        $(document).on('click', '.delete', function () {
-        	var inst = $('[data-remodal-id=modaledit]').remodal();
-        	inst.open();
-        	});
+        $(document).ready(function() {
+            $('#modalNew').on('click', function() {
+                   $.get("newContactModal", function(retorno) { 
+                	   $('#modalNewContact]').html(retorno);
+                	   $('[data-remodal-id=modalNewContact]').remodal().open();  
+                   });
+            });
+
+     });
     	</script>  	
     	 
     </body>
