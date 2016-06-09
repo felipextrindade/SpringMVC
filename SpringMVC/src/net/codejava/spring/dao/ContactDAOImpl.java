@@ -100,7 +100,7 @@ public class ContactDAOImpl implements ContactDAO {
 	
 	@Override
 	public List<Contact> searchByName(String v_name) {
-		String sql = "SELECT * FROM contact WHERE name LIKE '%" + v_name + "%'";
+		String sql = "SELECT * FROM contact WHERE name LIKE '%" + v_name + "%' or email LIKE '%" + v_name + "%'";
 		List<Contact> listContact = jdbcTemplate.query(sql, new RowMapper<Contact>() {
 
 			@Override

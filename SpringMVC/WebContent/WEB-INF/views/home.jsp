@@ -46,11 +46,13 @@
 	        	</tr>
 				</c:forEach>	        	
 			</table>
-			<form:form method="get" modelAttribute="contact" action="search">
+			<!--<form:form method="get" modelAttribute="contact" action="search">
 			    <form:input path="name" id="search" placeholder="Digite sua pesquisa aqui" />
 			    <br />			
-			    <input type="submit" value="Submit" />
-			</form:form>
+			      <input type="submit" value="Submit" />
+			</form:form>-->
+			
+			<label><input type="text" id="search" placeholder="Pesquise" value=""></label>
 			<br />	<br />	
     	</div>
     	
@@ -72,7 +74,22 @@
             });
 
      });
-    	</script>  	
-    	 
+    	</script>
+    	
+    	<script type="text/javascript">
+		$("#search").on("keyup", function(){
+		       var term = $("#search").val();
+		       $.ajax({
+		             url: "/SpringMVC/contact_list",
+		             method: "GET",
+		             data: {
+		                    term: term
+		             },
+		             success: function(r){
+		                    $("table#mainTable").html(r);
+		             }
+		       })
+		});
+		</script>  		 
     </body>
 </html>

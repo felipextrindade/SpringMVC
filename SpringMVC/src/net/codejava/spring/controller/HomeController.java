@@ -106,7 +106,7 @@ public class HomeController {
         return "home";
     }*/
     
-    @RequestMapping(value = "/search", method = RequestMethod.GET)
+    /*@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public ModelAndView listPerson(ModelAndView model,HttpServletRequest request) throws IOException {
     	Contact contact = new Contact();
 		model.addObject("contact", contact);
@@ -116,7 +116,17 @@ public class HomeController {
 		model.setViewName("home");
 
 		return model;
-	} 
+	}*/
+    
+    //Busca usando JS (Sem atualizar a página)
+	
+    @RequestMapping(value="/contact_list", method = RequestMethod.GET)
+    public ModelAndView listUserAjax(ModelAndView model, HttpServletRequest request) throws IOException{
+          List<Contact> contactList = contactDAO.searchByName(request.getParameter("term"));
+          model.addObject("contactList", contactList);
+          model.setViewName("list_ajax");
+          return model;
+    }
 	
 	
 	//mappings de persons
